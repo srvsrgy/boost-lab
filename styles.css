@@ -394,16 +394,27 @@ p {
 
 .chip {
   display: inline-flex;
-  min-height: 42px;
+  min-height: 34px;
   align-items: center;
-  padding: 0 14px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--button-ghost-bg);
+  gap: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   color: var(--muted);
-  font-size: 14px;
-  font-weight: 600;
-  backdrop-filter: blur(18px);
+  font-size: 15px;
+  font-weight: 700;
+  backdrop-filter: none;
+}
+
+.chip::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--violet), var(--orange));
+  box-shadow: 0 0 14px rgba(177, 77, 255, 0.38);
 }
 
 .hero-visual {
@@ -1047,11 +1058,27 @@ p {
 }
 
 .algorithm-arrow {
-  width: 2px;
-  height: 28px;
-  margin-left: 28px;
-  background: linear-gradient(var(--violet), var(--orange));
+  position: relative;
+  width: 4px;
+  height: 58px;
+  justify-self: center;
+  margin: -10px 0;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--violet), var(--orange));
   box-shadow: 0 0 18px rgba(255, 138, 61, 0.4);
+}
+
+.algorithm-arrow::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 13px;
+  height: 13px;
+  border-right: 4px solid var(--orange);
+  border-bottom: 4px solid var(--orange);
+  filter: drop-shadow(0 0 8px rgba(255, 138, 61, 0.55));
+  transform: translateX(-50%) rotate(45deg);
 }
 
 .control-panel {
