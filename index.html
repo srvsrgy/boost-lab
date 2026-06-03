@@ -401,25 +401,33 @@
             <p class="eyebrow">Персональная стратегия</p>
             <h2>Получите персональную стратегию роста для вашего товара</h2>
             <p>
-              Оставьте ссылку на товар - мы разберём текущую ситуацию и покажем, какие точки роста можно
+              Оставьте заявку - мы разберём текущую ситуацию и покажем, какие точки роста можно
               использовать для продвижения.
             </p>
           </div>
-          <form class="lead-form" action="#" method="post">
-            <label>
-              <span>Имя</span>
-              <input type="text" name="name" placeholder="Алексей" autocomplete="name" required />
-            </label>
-            <label>
-              <span>Telegram или WhatsApp</span>
-              <input type="text" name="contact" placeholder="@username или +7..." autocomplete="tel" required />
-            </label>
-            <label>
-              <span>Ссылка на товар</span>
-              <input type="url" name="product" placeholder="https://www.wildberries.ru/..." required />
-            </label>
-            <button class="btn btn-primary" type="submit">Получить стратегию продвижения</button>
-          </form>
+<form class="lead-form" action="#" method="post">
+  <label>
+    <span>Имя</span>
+    <input type="text" name="name" placeholder="Сергей" autocomplete="name" required />
+  </label>
+
+  <label>
+    <span>Telegram или WhatsApp</span>
+    <input type="text" name="contact" placeholder="+7 999 999 99 99" autocomplete="tel" required />
+  </label>
+
+  <label>
+    <span>Маркетплейс</span>
+    <select name="marketplace" required>
+      <option value="" disabled selected>Выберите маркетплейс</option>
+      <option value="wildberries">Wildberries</option>
+      <option value="ozon">Ozon</option>
+      <option value="both">Wildberries и Ozon</option>
+    </select>
+  </label>
+
+  <button class="btn btn-primary" type="submit">Получить стратегию продвижения</button>
+</form>
           <p class="microcopy">BOOST LAB © 2026. Стратегии продвижения для Wildberries и Ozon.</p>
         </div>
       </section>
