@@ -1,7 +1,6 @@
 const root = document.documentElement;
 const siteHeader = document.querySelector(".site-header");
 const themeToggle = document.querySelector(".theme-toggle");
-const themeToggleText = document.querySelector(".theme-toggle-text");
 const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
 const mobileMenu = document.querySelector(".mobile-menu");
 const savedTheme = localStorage.getItem("boostlab-theme") || "light";
@@ -14,10 +13,6 @@ const setTheme = (theme) => {
     const isDark = theme === "dark";
     themeToggle.setAttribute("aria-pressed", String(isDark));
     themeToggle.setAttribute("aria-label", isDark ? "Переключить на светлую тему" : "Переключить на тёмную тему");
-  }
-
-  if (themeToggleText) {
-    themeToggleText.textContent = theme === "dark" ? "Dark" : "Light";
   }
 };
 
