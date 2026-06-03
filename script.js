@@ -34,7 +34,6 @@ const glowPalette = [
 const randomRange = (min, max) => Math.random() * (max - min) + min;
 const randomPercent = (min, max) => `${Math.round(randomRange(min, max))}%`;
 const randomPx = (min, max) => `${Math.round(randomRange(min, max))}px`;
-const randomChoice = (items) => items[Math.floor(Math.random() * items.length)];
 
 document.querySelectorAll(".visual-card, .glass-card, .glass-panel").forEach((card) => {
   const shouldGlow = Math.random() > 0.52;
