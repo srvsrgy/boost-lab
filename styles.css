@@ -1654,7 +1654,7 @@ p {
   .container,
   .hero-grid,
   .site-header {
-    width: min(100% - 24px, 1180px);
+    width: min(100% - 36px, 1180px);
   }
 
   .site-header {
@@ -1795,8 +1795,8 @@ p {
   .control-panel,
   .offer-card,
   .final-card {
-    padding: 22px;
-    border-radius: 34px;
+    padding: 18px;
+    border-radius: 30px;
   }
 
   .metric-strip {
@@ -1823,8 +1823,8 @@ p {
   }
 
   .faq-copy {
-    padding: 22px;
-    border-radius: 30px;
+    padding: 18px;
+    border-radius: 28px;
   }
 
   .case-card h3 {
@@ -1853,7 +1853,7 @@ p {
 
 @media (max-width: 520px) {
   .site-header {
-    width: calc(100% - 16px);
+    width: calc(100% - 28px);
   }
 
   .header-cta {
@@ -1862,7 +1862,7 @@ p {
 
   .container,
   .hero-grid {
-    width: calc(100% - 20px);
+    width: calc(100% - 36px);
   }
 
   .section {
@@ -1928,8 +1928,8 @@ p {
   .control-panel,
   .offer-card,
   .final-card {
-    padding: 18px;
-    border-radius: 28px;
+    padding: 16px;
+    border-radius: 26px;
   }
 
   .bar-chart,
