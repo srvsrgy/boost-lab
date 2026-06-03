@@ -112,3 +112,50 @@ document.querySelectorAll(".lead-form").forEach((form) => {
     }, 2200);
   });
 });
+
+const leadForm = document.querySelector(".lead-form");
+
+if (leadForm) {
+  leadForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const button = leadForm.querySelector("button[type='submit']");
+    const formData = new FormData(leadForm);
+
+    const data = {
+      name: formData.get("name"),
+      contact: formData.get("contact"),
+      marketplace: formData.get("marketplace"),
+    };
+
+    try {
+      button.disabled = true;
+      button.textContent = "Отправляем...";
+
+      const response = await fetch("/api/send-lead", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.ok) {
+        throw new Error(result.message || "Ошибка отправки");
+      }
+
+      leadForm.reset();
+      button.textContent = "Заявка отправлена";
+    } catch (error) {
+      button.textContent = "Ошибка отправки";
+      alert("Не удалось отправить заявку. Попробуйте написать нам в Telegram.");
+    } finally {
+      setTimeout(() => {
+        button.disabled = false;
+        button.textContent = "Получить стратегию продвижения";
+      }, 2500);
+    }
+  });
+}
