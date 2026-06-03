@@ -181,7 +181,7 @@ function formatRussianPhone(value) {
   const part2 = numbers.slice(7, 9);
   const part3 = numbers.slice(9, 11);
 
-  return `+7-(${code})-${part1}-${part2}-${part3}`;
+  return `+7 (${code}) ${part1}-${part2}-${part3}`;
 }
 
 if (contactInput) {
