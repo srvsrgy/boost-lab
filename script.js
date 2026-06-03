@@ -102,17 +102,6 @@ document.querySelectorAll(".floating").forEach((item) => {
   item.dataset.baseTransform = getComputedStyle(item).transform === "none" ? "" : getComputedStyle(item).transform;
 });
 
-document.querySelectorAll(".lead-form").forEach((form) => {
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const button = form.querySelector("button");
-    button.textContent = "Заявка подготовлена";
-    setTimeout(() => {
-      button.textContent = "Получить стратегию продвижения";
-    }, 2200);
-  });
-});
-
 const leadForm = document.querySelector(".lead-form");
 
 if (leadForm) {
@@ -150,8 +139,7 @@ if (leadForm) {
       button.textContent = "Заявка отправлена";
     } catch (error) {
       button.textContent = "Ошибка отправки";
-      alert("Не удалось отправить заявку. Попробуйте написать нам в Telegram.");
-    } finally {
+alert(error.message || "Не удалось отправить заявку. Попробуйте написать нам в Telegram.");    } finally {
       setTimeout(() => {
         button.disabled = false;
         button.textContent = "Получить стратегию продвижения";

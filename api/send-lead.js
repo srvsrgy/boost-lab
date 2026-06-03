@@ -29,13 +29,13 @@ export default async function handler(req, res) {
       both: "Wildberries и Ozon",
     }[marketplace] || marketplace;
 
-    const text = `
-🔥 Новая заявка с сайта BOOST LAB
-
-👤 Имя: ${name}
-📲 Контакт: ${contact}
-🛒 Маркетплейс: ${marketplaceText}
-`;
+    const text = [
+      "🔥 Новая заявка с сайта BOOST LAB",
+      "",
+      `👤 Имя: ${name}`,
+      `📲 Контакт: ${contact}`,
+      `🛒 Маркетплейс: ${marketplaceText}`,
+    ].join("\n");
 
     const telegramResponse = await fetch(
       `https://api.telegram.org/bot${botToken}/sendMessage`,
@@ -51,10 +51,12 @@ export default async function handler(req, res) {
       }
     );
 
+    const telegramData = await telegramResponse.json();
+
     if (!telegramResponse.ok) {
       return res.status(500).json({
         ok: false,
-        message: "Telegram request failed",
+        message: telegramData.description || "Telegram request failed",
       });
     }
 
@@ -69,4 +71,3 @@ export default async function handler(req, res) {
     });
   }
 }
-const { name, contact, marketplace } = req.body || {};
