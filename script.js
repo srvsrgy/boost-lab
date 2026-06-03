@@ -1,6 +1,9 @@
 const root = document.documentElement;
+const siteHeader = document.querySelector(".site-header");
 const themeToggle = document.querySelector(".theme-toggle");
 const themeToggleText = document.querySelector(".theme-toggle-text");
+const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+const mobileMenu = document.querySelector(".mobile-menu");
 const savedTheme = localStorage.getItem("boostlab-theme") || "light";
 
 const setTheme = (theme) => {
@@ -22,6 +25,39 @@ setTheme(savedTheme);
 
 themeToggle?.addEventListener("click", () => {
   setTheme(root.dataset.theme === "dark" ? "light" : "dark");
+});
+
+const setMobileMenu = (isOpen) => {
+  siteHeader?.classList.toggle("is-menu-open", isOpen);
+  mobileMenuToggle?.setAttribute("aria-expanded", String(isOpen));
+  mobileMenuToggle?.setAttribute("aria-label", isOpen ? "Закрыть меню" : "Открыть меню");
+};
+
+mobileMenuToggle?.addEventListener("click", (event) => {
+  event.stopPropagation();
+  setMobileMenu(!siteHeader?.classList.contains("is-menu-open"));
+});
+
+mobileMenu?.addEventListener("click", (event) => {
+  if (event.target.closest("a")) {
+    setMobileMenu(false);
+  }
+});
+
+document.addEventListener("click", (event) => {
+  if (!siteHeader?.classList.contains("is-menu-open")) {
+    return;
+  }
+
+  if (!siteHeader.contains(event.target)) {
+    setMobileMenu(false);
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    setMobileMenu(false);
+  }
 });
 
 const glowPalette = [
