@@ -159,3 +159,51 @@ if (leadForm) {
     }
   });
 }
+const contactInput = document.querySelector('input[name="contact"]');
+
+function isTelegramContact(value) {
+  const trimmed = value.trim();
+
+  return trimmed.startsWith("@") || /[a-zA-Zа-яА-Я]/.test(trimmed);
+}
+
+function formatRussianPhone(value) {
+  const digits = value.replace(/\D/g, "");
+
+  if (!digits) return "";
+
+  let numbers = digits;
+
+  if (numbers.startsWith("8")) {
+    numbers = "7" + numbers.slice(1);
+  }
+
+  if (!numbers.startsWith("7")) {
+    numbers = "7" + numbers;
+  }
+
+  numbers = numbers.slice(0, 11);
+
+  if (numbers.length < 11) {
+    return value;
+  }
+
+  const code = numbers.slice(1, 4);
+  const part1 = numbers.slice(4, 7);
+  const part2 = numbers.slice(7, 9);
+  const part3 = numbers.slice(9, 11);
+
+  return `+7-(${code})-${part1}-${part2}-${part3}`;
+}
+
+if (contactInput) {
+  contactInput.addEventListener("blur", () => {
+    const value = contactInput.value.trim();
+
+    if (!value || isTelegramContact(value)) {
+      return;
+    }
+
+    contactInput.value = formatRussianPhone(value);
+  });
+}

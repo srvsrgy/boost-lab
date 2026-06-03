@@ -1395,7 +1395,8 @@ p {
   gap: 8px;
 }
 
-.lead-form span {
+.lead-form label > span {
+  padding-left: 10px;
   color: var(--soft);
   font-size: 13px;
   font-weight: 800;
