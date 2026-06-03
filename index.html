@@ -11,14 +11,16 @@
     <script>
       document.documentElement.dataset.theme = localStorage.getItem("boostlab-theme") || "light";
     </script>
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="apple-touch-icon" href="assets/favicon.png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="page-noise" aria-hidden="true"></div>
     <header class="site-header" aria-label="Навигация">
       <a class="brand" href="#hero" aria-label="BOOST LAB">
-        <span class="brand-mark"></span>
-        BOOST LAB
+        <img class="brand-logo brand-logo-light" src="assets/boost-lab-logo.png" alt="BOOST LAB" />
+        <img class="brand-logo brand-logo-dark" src="assets/boost-lab-logo-white.png" alt="BOOST LAB" />
       </a>
       <nav class="nav-links" aria-label="Блоки лендинга">
         <a href="#losses">Проблемы</a>

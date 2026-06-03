@@ -178,19 +178,27 @@ select {
 
 .brand {
   flex: 0 0 auto;
-  gap: 10px;
-  font-size: 15px;
-  font-weight: 800;
+  min-width: 142px;
+  height: 34px;
 }
 
-.brand-mark {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 65% 25%, #fff 0 8%, transparent 9%),
-    linear-gradient(135deg, var(--violet), var(--orange));
-  box-shadow: 0 0 32px rgba(177, 77, 255, 0.45);
+.brand-logo {
+  display: block;
+  width: auto;
+  height: 31px;
+  object-fit: contain;
+}
+
+.brand-logo-dark {
+  display: none;
+}
+
+html[data-theme="dark"] .brand-logo-light {
+  display: none;
+}
+
+html[data-theme="dark"] .brand-logo-dark {
+  display: block;
 }
 
 .nav-links {
@@ -2059,13 +2067,12 @@ html[data-theme="dark"] .contact-link {
   }
 
   .brand {
-    gap: 8px;
-    font-size: 13px;
+    min-width: 118px;
+    height: 30px;
   }
 
-  .brand-mark {
-    width: 24px;
-    height: 24px;
+  .brand-logo {
+    height: 26px;
   }
 
   .header-actions {
