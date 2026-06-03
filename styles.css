@@ -1654,7 +1654,7 @@ p {
   .container,
   .hero-grid,
   .site-header {
-    width: min(100% - 36px, 1180px);
+    width: min(100% - 54px, 1180px);
   }
 
   .site-header {
@@ -1853,7 +1853,7 @@ p {
 
 @media (max-width: 520px) {
   .site-header {
-    width: calc(100% - 28px);
+    width: calc(100% - 54px);
   }
 
   .header-cta {
@@ -1862,7 +1862,7 @@ p {
 
   .container,
   .hero-grid {
-    width: calc(100% - 36px);
+    width: calc(100% - 54px);
   }
 
   .section {
