@@ -4,9 +4,9 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { name, contact, marketplace } = req.body || {};
+    const { name, contact, product, marketplace } = req.body || {};
 
-    if (!name || !contact || !marketplace) {
+    if (!name || !contact || !product || !marketplace) {
       return res.status(400).json({
         ok: false,
         message: "Заполните все поля",
@@ -34,8 +34,9 @@ export default async function handler(req, res) {
       "",
       `👤 Имя: ${name}`,
       `📲 Контакт: ${contact}`,
+      product ? `📦 Товар: ${product}` : null,
       `🛒 Маркетплейс: ${marketplaceText}`,
-    ].join("\n");
+    ].filter(Boolean).join("\n");
 
     const telegramResponse = await fetch(
       `https://api.telegram.org/bot${botToken}/sendMessage`,

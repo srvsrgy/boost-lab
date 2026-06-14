@@ -1,486 +1,377 @@
 <!doctype html>
-<html lang="ru" data-theme="light">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="BOOST LAB помогает товарам получать больше органических продаж и занимать более высокие позиции на Wildberries и Ozon."
+      content="BOOST LAB помогает селлерам Wildberries и Ozon оценить потенциал роста продаж через рейтинг, позиции в выдаче и развитие карточки."
     />
-    <title>BOOST LAB - рост органических продаж на маркетплейсах</title>
-    <script>
-      document.documentElement.dataset.theme = localStorage.getItem("boostlab-theme") || "light";
-    </script>
-      <link rel="shortcut icon" href="/favicon.ico?v=3" />
-      <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
-      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=3" />
-      <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png?v=3" />
-      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3" />
-    <link rel="stylesheet" href="styles.css" />
+    <title>BOOST LAB - рост продаж через рейтинг и позиции товара</title>
+    <link rel="shortcut icon" href="assets/icons/favicon.ico?v=4" />
+    <link rel="icon" href="assets/icons/favicon.ico?v=4" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png?v=4" />
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/icons/favicon.png?v=4" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png?v=4" />
+    <link rel="stylesheet" href="styles.css?v=rating-13" />
   </head>
   <body>
-    <div class="page-noise" aria-hidden="true"></div>
     <header class="site-header" aria-label="Навигация">
-      <a class="brand" href="#hero" aria-label="BOOST LAB">
-        <img class="brand-logo brand-logo-light" src="assets/boost-lab-logo.png" alt="BOOST LAB" />
-        <img class="brand-logo brand-logo-dark" src="assets/boost-lab-logo-white.png" alt="BOOST LAB" />
-      </a>
-      <nav class="nav-links" aria-label="Блоки лендинга">
-        <a href="#losses">Проблемы</a>
-        <a href="#system">Система</a>
-        <a href="#logic">Логика</a>
-        <a href="#control">Контроль</a>
-        <a href="#trust">Доверие</a>
-        <a href="#cases">Кейсы</a>
-        <a href="#free-audit">Аудит</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-      <div class="header-actions">
-        <button class="mobile-menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <button class="theme-toggle" type="button" aria-label="Переключить на тёмную тему" aria-pressed="false">
-          <span class="theme-icon theme-icon-sun" aria-hidden="true"></span>
-          <span class="theme-divider" aria-hidden="true"></span>
-          <span class="theme-icon theme-icon-moon" aria-hidden="true"></span>
-        </button>
-        <a class="telegram-link" href="https://t.me/boostlab_manager" target="_blank" rel="noopener" aria-label="Написать в Telegram">
-          <svg viewBox="0 0 240 240" aria-hidden="true">
-            <circle cx="120" cy="120" r="120" fill="#229ed9" />
-            <path
-              fill="#ffffff"
-              d="M179.7 74.2c2.1-9.8-3.5-13.6-11.6-10.3L43.2 112.1c-8.5 3.3-8.4 8.1-1.5 10.2l32 10 12.3 37.7c1.6 4.5.8 6.3 5.5 6.3 3.6 0 5.2-1.6 7.2-3.5l17.3-16.8 35.9 26.5c6.6 3.6 11.4 1.8 13-6.1l14.8-102.2zM78.8 129.9l73.5-46.3c3.6-2.2 6.8-1 4.1 1.4l-62.9 56.8-2.4 25.8-12.3-37.7z"
-            />
-          </svg>
+      <div class="mobile-topbar" aria-label="Ключевой оффер">
+        <span>Расчёт потенциала продаж</span>
+        <span>WB / Ozon</span>
+      </div>
+      <div class="header-grid">
+        <a class="brand" href="#hero" aria-label="BOOST LAB">
+          <img class="brand-logo" src="assets/boost-lab-logo.png?v=2" alt="BOOST LAB" />
         </a>
-        <a class="header-cta" href="#final-offer">Разбор товара</a>
+        <nav class="nav-links" aria-label="Блоки лендинга">
+          <a href="#problem">Проблема</a>
+          <a href="#system">Подход</a>
+          <a href="#marketplaces">Алгоритмы</a>
+          <a href="#trust">Доверие</a>
+          <a href="#cases">Кейсы</a>
+          <a href="#rating-calc">Расчёт</a>
+        </nav>
+        <div class="header-actions">
+          <a class="telegram-link" href="https://t.me/boostlab_manager" target="_blank" rel="noopener">TG</a>
+          <a class="header-cta" href="#rating-calc">Получить расчёт</a>
+          <button class="mobile-menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
       <nav class="mobile-menu" id="mobile-menu" aria-label="Мобильная навигация">
         <a href="#hero">Главная</a>
-        <a href="#losses">Проблемы</a>
-        <a href="#system">Система</a>
-        <a href="#logic">Логика</a>
-        <a href="#control">Контроль</a>
+        <a href="#problem">Проблема</a>
+        <a href="#system">Подход</a>
+        <a href="#marketplaces">Алгоритмы</a>
         <a href="#trust">Доверие</a>
         <a href="#cases">Кейсы</a>
-        <a href="#free-audit">Аудит</a>
-        <a href="#faq">FAQ</a>
-        <a href="#final-offer">Разбор товара</a>
+        <a href="#rating-calc">Расчёт</a>
+        <a href="https://t.me/boostlab_manager" target="_blank" rel="noopener">Telegram</a>
       </nav>
     </header>
 
-    <main>
-      <section class="section hero-section reveal" id="hero">
-        <div class="hero-glow hero-glow-violet"></div>
-        <div class="hero-glow hero-glow-orange"></div>
+    <main class="site-main">
+      <section class="section hero-section" id="hero">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">Wildberries / Ozon / organic growth</p>
-            <h1>
-              Помогаем товарам получать больше органических продаж и занимать более высокие позиции на
-              маркетплейсах
-            </h1>
+            <h1>Конкуренты получают продажи, которые могли бы быть вашими</h1>
             <p class="hero-subtitle">
-              Разрабатываем индивидуальную стратегию продвижения для Wildberries и Ozon с сопровождением на
-              каждом этапе.
+              Находим, где товар теряет видимость и продажи: в рейтинге, позициях выдачи и сигналах карточки.
             </p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#final-offer">Получить бесплатный разбор товара</a>
-              <a class="btn btn-ghost" href="#losses">Посмотреть подход</a>
+              <a class="btn btn-primary" href="#rating-calc">Получить расчёт потенциала продаж</a>
             </div>
-            <div class="chip-row" aria-label="Преимущества">
-              <span class="chip">Работаем с Wildberries и Ozon</span>
-              <span class="chip">Индивидуальная стратегия</span>
-              <span class="chip">Прозрачное сопровождение</span>
-              <span class="chip">Отчётность по проекту</span>
-            </div>
+            <p class="hero-caption">Рейтинг. Позиции. Видимость. План роста.</p>
           </div>
-          <div class="hero-visual" aria-label="Аналитика продвижения товара">
-            <div class="orbital-line"></div>
-            <div class="visual-card product-card floating">
-              <div class="product-image"></div>
-              <div>
-                <span class="metric-label">Карточка товара</span>
-                <strong>TOP growth signal</strong>
-              </div>
-              <span class="status-pill">+42%</span>
+          <div class="hero-visual sales-board" aria-label="Схема роста продаж через рейтинг и позиции">
+            <div class="sales-board-head">
+              <strong>Путь к росту продаж</strong>
+              <span>WB / Ozon</span>
             </div>
-            <div class="visual-card search-card floating floating-delay">
-              <span class="metric-label">Поисковая выдача</span>
-              <div class="rank-list">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
+            <div class="sales-flow">
+              <article class="sales-phase sales-phase-low">
+                <span class="phase-index">01</span>
+                <h3>Слабый старт</h3>
+                <div class="phase-metrics">
+                  <span><strong>4.3</strong><small>рейтинг</small></span>
+                  <span><strong>мало</strong><small>продаж</small></span>
+                </div>
+              </article>
+              <article class="sales-phase sales-phase-work">
+                <span class="phase-index">02</span>
+                <h3>Работаем</h3>
+                <div class="phase-tags">
+                  <span>позиции</span>
+                  <span>рейтинг</span>
+                </div>
+              </article>
+              <article class="sales-phase sales-phase-growth">
+                <span class="phase-index">03</span>
+                <h3>Рост</h3>
+                <div class="phase-metrics">
+                  <span><strong>4.7</strong><small>рейтинг</small></span>
+                  <span><strong>выше</strong><small>продажи</small></span>
+                </div>
+              </article>
             </div>
-            <div class="visual-card chart-card floating floating-slow">
-              <div class="chart-head">
-                <span>Органика</span>
-                <strong>128K</strong>
+            <div class="sales-growth-map">
+              <div class="sales-map-head">
+                <span>Цикл роста</span>
+                <strong>рейтинг + позиции</strong>
               </div>
-              <svg viewBox="0 0 320 150" role="img" aria-label="График роста органических продаж">
-                <defs>
-                  <linearGradient id="heroChart" x1="0" x2="1" y1="0" y2="0">
-                    <stop offset="0%" stop-color="#7b4dff" />
-                    <stop offset="100%" stop-color="#ff8a3d" />
-                  </linearGradient>
-                </defs>
-                <path class="grid-line" d="M8 118 H310 M8 78 H310 M8 38 H310" />
-                <path class="chart-line draw-line" d="M10 122 C54 116 66 92 100 96 C145 101 148 55 190 58 C232 61 248 30 310 24" />
-                <path
-                  class="chart-area"
-                  d="M10 122 C54 116 66 92 100 96 C145 101 148 55 190 58 C232 61 248 30 310 24 V150 H10 Z"
-                />
-              </svg>
-            </div>
-            <div class="visual-card mini-card floating floating-delay-2">
-              <span class="metric-label">Рекламная нагрузка</span>
-              <strong>-28%</strong>
+              <div class="growth-tracks">
+                <div class="growth-track track-rating">
+                  <span>рейтинг</span>
+                  <i></i>
+                </div>
+                <div class="growth-track track-position">
+                  <span>позиции</span>
+                  <i></i>
+                </div>
+                <div class="growth-track track-sales">
+                  <span>продажи</span>
+                  <i></i>
+                </div>
+              </div>
+              <div class="growth-timeline">
+                <span>низко</span>
+                <span>работа</span>
+                <span>рост</span>
+                <b aria-hidden="true"></b>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section reveal" id="losses">
+      <section class="section" id="problem">
         <div class="container split-layout">
           <div class="section-copy">
-            <p class="eyebrow">Потери вне ТОПа</p>
-            <h2>Сколько денег теряет карточка вне ТОПа</h2>
-            <p>
-              Пока товар находится далеко в выдаче, большую часть покупателей получают конкуренты.
-            </p>
+            <h2>Почему хорошие товары часто проигрывают конкурентам</h2>
+            <p>Даже качественный товар может получать меньше заказов, чем заслуживает.</p>
+            <a class="btn btn-secondary section-cta" href="#rating-calc">Проверить потенциал товара</a>
           </div>
-          <div class="dashboard glass-panel">
+          <div class="dashboard panel compact-panel">
             <div class="dashboard-top">
-              <span>Видимость карточки</span>
-              <strong>-63%</strong>
+              <span>Сигналы карточки</span>
+              <strong>ниже рынка</strong>
             </div>
-            <div class="bar-chart" aria-label="График падения видимости">
-              <span style="--h: 78%"></span>
-              <span style="--h: 66%"></span>
-              <span style="--h: 51%"></span>
-              <span style="--h: 38%"></span>
-              <span style="--h: 25%"></span>
-              <span style="--h: 18%"></span>
-            </div>
-            <div class="metric-strip">
-              <div><strong>x2.4</strong><span>дороже привлечение</span></div>
-              <div><strong>78%</strong><span>выбирают верх выдачи</span></div>
+            <div class="bar-chart compact-chart" aria-label="Сравнение сигналов карточки">
+              <span style="--h: 42%"></span>
+              <span style="--h: 58%"></span>
+              <span style="--h: 33%"></span>
+              <span style="--h: 74%"></span>
+              <span style="--h: 46%"></span>
             </div>
           </div>
         </div>
         <div class="container problem-grid">
-          <article class="glass-card tilt-card">
+          <article class="card">
             <span class="card-icon">01</span>
-            <h3>Мало органических продаж</h3>
+            <h3>Недостаточная активность покупателей</h3>
           </article>
-          <article class="glass-card tilt-card">
+          <article class="card">
             <span class="card-icon">02</span>
-            <h3>Дорогая реклама</h3>
+            <h3>Медленный рост рейтинга</h3>
           </article>
-          <article class="glass-card tilt-card">
+          <article class="card">
             <span class="card-icon">03</span>
             <h3>Слабая видимость карточки</h3>
           </article>
-          <article class="glass-card tilt-card">
+          <article class="card">
             <span class="card-icon">04</span>
-            <h3>Потеря потенциальной прибыли</h3>
+            <h3>Нет системного подхода</h3>
           </article>
-          <article class="glass-card tilt-card">
+          <article class="card">
             <span class="card-icon">05</span>
-            <h3>Медленный рост бизнеса</h3>
+            <h3>Сильные позиции конкурентов</h3>
           </article>
         </div>
       </section>
 
-      <section class="section reveal" id="system">
+      <section class="section" id="system">
         <div class="container center-copy">
-          <p class="eyebrow">Система BOOST LAB</p>
-          <h2>Как работает BOOST LAB</h2>
-          <p>Показываем простую систему работы.</p>
+          <h2>Системный подход вместо хаотичных действий</h2>
         </div>
         <div class="container process-flow">
-          <article class="process-card glass-card">
+          <article class="process-card card">
             <span>01</span>
-            <h3>Анализируем товар и нишу.</h3>
+            <h3>Анализируем товар и текущие показатели.</h3>
           </article>
-          <article class="process-card glass-card">
+          <article class="process-card card">
             <span>02</span>
-            <h3>Определяем точки роста.</h3>
+            <h3>Определяем точки роста и ограничения карточки.</h3>
           </article>
-          <article class="process-card glass-card">
+          <article class="process-card card">
             <span>03</span>
-            <h3>Формируем стратегию продвижения.</h3>
+            <h3>Подбираем стратегию развития.</h3>
           </article>
-          <article class="process-card glass-card">
+          <article class="process-card card">
             <span>04</span>
-            <h3>Запускаем проект.</h3>
+            <h3>Сопровождаем реализацию и отслеживаем результаты.</h3>
           </article>
-          <article class="process-card glass-card">
-            <span>05</span>
-            <h3>Отслеживаем результаты и корректируем действия.</h3>
-          </article>
+        </div>
+        <div class="container section-action">
+          <a class="btn btn-primary" href="#rating-calc">Получить расчёт рейтинга</a>
         </div>
       </section>
 
-      <section class="section reveal" id="logic">
+      <section class="section" id="marketplaces">
         <div class="container split-layout logic-layout">
           <div class="section-copy">
-            <p class="eyebrow">Логика маркетплейсов</p>
-            <h2>Почему это работает</h2>
-            <p>Объясняем логику маркетплейсов простым языком. Без сложных терминов.</p>
-            <div class="bullet-list">
-              <span>как формируется выдача;</span>
-              <span>почему продажи влияют на позиции;</span>
-              <span>почему новые карточки сложно продвигать самостоятельно;</span>
-              <span>зачем нужна правильная стратегия запуска.</span>
-            </div>
-          </div>
-          <div class="algorithm glass-panel" aria-label="Схема алгоритма маркетплейса">
-            <div class="algorithm-node">продажи</div>
-            <div class="algorithm-arrow"></div>
-            <div class="algorithm-node">поведенческие сигналы</div>
-            <div class="algorithm-arrow"></div>
-            <div class="algorithm-node">позиции</div>
-            <div class="algorithm-arrow"></div>
-            <div class="algorithm-node accent-node">органический трафик</div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section reveal" id="control">
-        <div class="container glass-panel control-panel">
-          <div class="section-copy">
-            <p class="eyebrow">Безопасность</p>
-            <h2>Безопасность и контроль</h2>
+            <h2>Почему одни товары продаются лучше других</h2>
             <p>
-              Отвечаем на главный страх клиента: каждый этап прозрачен, действия согласованы, а риски
-              учитываются до запуска.
+              Алгоритмы Wildberries и Ozon учитывают множество факторов: продажи, рейтинг, активность покупателей
+              и другие сигналы.
             </p>
-            <div class="bullet-list security-list" aria-label="Принципы безопасности">
-              <span>Работаем вручную, без автоматизированных схем.</span>
-              <span>Каждый этап согласуется заранее.</span>
-              <span>Риски оцениваются до запуска.</span>
-              <span>Условия фиксируются в переписке или договорённости.</span>
-            </div>
+            <p>
+              Когда карточка получает стабильные подтверждения интереса покупателей, её шансы на дополнительную
+              видимость увеличиваются.
+            </p>
+            <p>Мы помогаем работать с этими показателями системно и последовательно.</p>
           </div>
-          <div class="control-grid">
-            <article class="glass-card">
-              <span class="card-icon">✓</span>
-              <h3>Контроль каждого этапа</h3>
-            </article>
-            <article class="glass-card">
-              <span class="card-icon">•</span>
-              <h3>Персональное сопровождение</h3>
-            </article>
-            <article class="glass-card">
-              <span class="card-icon">↗</span>
-              <h3>Прозрачная отчётность</h3>
-            </article>
-            <article class="glass-card">
-              <span class="card-icon">+</span>
-              <h3>Согласование действий</h3>
-            </article>
-            <article class="glass-card">
-              <span class="card-icon">!</span>
-              <h3>Внимание к рискам проекта</h3>
-            </article>
+          <div class="algorithm panel" aria-label="Факторы развития карточки">
+            <div class="algorithm-node">рейтинг</div>
+            <div class="algorithm-arrow"></div>
+            <div class="algorithm-node">активность покупателей</div>
+            <div class="algorithm-arrow"></div>
+            <div class="algorithm-node">видимость карточки</div>
+            <div class="algorithm-arrow"></div>
+            <div class="algorithm-node accent-node">потенциал роста</div>
           </div>
         </div>
       </section>
 
-      <section class="section reveal" id="trust">
+      <section class="section" id="trust">
         <div class="container center-copy">
-          <p class="eyebrow">Доверие</p>
-          <h2>Почему нам доверяют</h2>
+          <h2>Почему нам доверяют развитие своих товаров</h2>
         </div>
         <div class="container trust-grid">
-          <article class="glass-card tilt-card">
+          <article class="card">
+            <h3>Работа на основе данных</h3>
+            <p>Принимаем решения на основе показателей товара, а не догадок.</p>
+          </article>
+          <article class="card">
+            <h3>Прозрачность</h3>
+            <p>Вы понимаете, что происходит на каждом этапе работы.</p>
+          </article>
+          <article class="card">
+            <h3>Сопровождение</h3>
+            <p>Остаёмся на связи и сопровождаем проект в процессе работы.</p>
+          </article>
+          <article class="card">
             <h3>Системный подход</h3>
-            <p>Работа строится не вокруг одной гипотезы, а вокруг понятной последовательности действий.</p>
+            <p>Каждое действие является частью общей стратегии роста товара.</p>
           </article>
-          <article class="glass-card tilt-card">
-            <h3>Понимание алгоритмов маркетплейсов</h3>
-            <p>Стратегия учитывает видимость, продажи, поведение покупателей и динамику ниши.</p>
-          </article>
-          <article class="glass-card tilt-card">
-            <h3>Сопровождение клиента</h3>
-            <p>Вы видите, что происходит с проектом, и получаете комментарии по ключевым изменениям.</p>
-          </article>
-          <article class="glass-card tilt-card">
-            <h3>Индивидуальная работа с каждым проектом</h3>
-            <p>Подход подбирается под товар, нишу, конкурентов и текущую стадию карточки.</p>
-          </article>
-          <article class="glass-card tilt-card">
-            <h3>Оперативная коммуникация</h3>
-            <p>Решения принимаются быстро, без потери фокуса на цели продвижения.</p>
-          </article>
+        </div>
+        <div class="container section-action">
+          <a class="btn btn-secondary" href="#rating-calc">Обсудить товар</a>
         </div>
       </section>
 
-      <section class="section reveal" id="cases">
+      <section class="section" id="cases">
         <div class="container center-copy">
-          <p class="eyebrow">Product analytics</p>
-          <h2>Кейсы и результаты</h2>
+          <h2>Результаты клиентов</h2>
+          <p class="case-disclaimer">
+            Черновые примеры ниже нужны только для проверки структуры блока. Перед публикацией заменим их на реальные кейсы.
+          </p>
         </div>
         <div class="container cases-grid">
-          <article class="case-card glass-card">
+          <article class="case-card card">
             <div class="case-visual">
-              <span style="--h: 36%"></span>
-              <span style="--h: 52%"></span>
+              <span style="--h: 44%"></span>
+              <span style="--h: 56%"></span>
               <span style="--h: 68%"></span>
-              <span style="--h: 84%"></span>
+              <span style="--h: 82%"></span>
             </div>
-            <p class="eyebrow">Ниша: товары для дома</p>
-            <h3>Рост органических заказов на 42% за 5 недель</h3>
+            <h3>Товар с потенциалом роста рейтинга</h3>
             <dl>
-              <div><dt>Ситуация клиента</dt><dd>слабая видимость карточки</dd></div>
-              <div><dt>Задача</dt><dd>найти точки роста в нише</dd></div>
-              <div><dt>Выполненная работа</dt><dd>анализ ниши, стратегия продвижения, корректировка карточки</dd></div>
-              <div><dt>Результат</dt><dd>рост органических заказов на 42% за 5 недель</dd></div>
+              <div><dt>Товар</dt><dd>категория будет добавлена</dd></div>
+              <div><dt>Задача</dt><dd>оценить потенциал роста рейтинга</dd></div>
+              <div><dt>Решение</dt><dd>расчёт, стратегия, сопровождение</dd></div>
+              <div><dt>Результат</dt><dd>будет заменён на реальные данные</dd></div>
             </dl>
           </article>
-          <article class="case-card glass-card">
-            <div class="case-visual ring-visual">
-              <span></span>
-            </div>
-            <p class="eyebrow">Ниша: косметика</p>
-            <h3>Снижение рекламной нагрузки на 28%</h3>
-            <dl>
-              <div><dt>Ситуация клиента</dt><dd>высокая зависимость от рекламы</dd></div>
-              <div><dt>Задача</dt><dd>вывести продажи в органику</dd></div>
-              <div><dt>Выполненная работа</dt><dd>стратегия вывода в органику</dd></div>
-              <div><dt>Результат</dt><dd>снижение рекламной нагрузки на 28%</dd></div>
-            </dl>
-          </article>
-          <article class="case-card glass-card">
+          <article class="case-card card">
             <div class="case-visual spark-visual">
               <span></span>
               <span></span>
               <span></span>
             </div>
-            <p class="eyebrow">Ниша: аксессуары</p>
-            <h3>Первые стабильные органические продажи за 21 день</h3>
+            <h3>Карточка с низкой видимостью</h3>
             <dl>
-              <div><dt>Ситуация клиента</dt><dd>новая карточка без продаж</dd></div>
-              <div><dt>Задача</dt><dd>запустить динамику и контроль</dd></div>
-              <div><dt>Выполненная работа</dt><dd>запуск продвижения и контроль динамики</dd></div>
-              <div><dt>Результат</dt><dd>первые стабильные органические продажи за 21 день</dd></div>
+              <div><dt>Товар</dt><dd>категория будет добавлена</dd></div>
+              <div><dt>Задача</dt><dd>найти причины отставания от конкурентов</dd></div>
+              <div><dt>Решение</dt><dd>анализ сигналов и точек роста</dd></div>
+              <div><dt>Результат</dt><dd>будет заменён на реальные данные</dd></div>
+            </dl>
+          </article>
+          <article class="case-card card">
+            <div class="case-visual ring-visual">
+              <span></span>
+            </div>
+            <h3>Товар в конкурентной нише</h3>
+            <dl>
+              <div><dt>Товар</dt><dd>категория будет добавлена</dd></div>
+              <div><dt>Задача</dt><dd>понять, какие продажи уходят конкурентам</dd></div>
+              <div><dt>Решение</dt><dd>расчёт рейтинга и план действий</dd></div>
+              <div><dt>Результат</dt><dd>будет заменён на реальные данные</dd></div>
             </dl>
           </article>
         </div>
       </section>
 
-      <section class="section reveal" id="free-audit">
-        <div class="container offer-card glass-panel">
+      <section class="section" id="rating-calc">
+        <div class="container offer-layout">
           <div class="section-copy">
-            <p class="eyebrow">Бесплатный разбор товара</p>
-            <h2>Получите бесплатный разбор вашего товара</h2>
-            <div class="bullet-list two-col">
-              <span>анализ текущей ситуации;</span>
-              <span>оценку потенциала роста;</span>
-              <span>рекомендации по продвижению;</span>
-              <span>предварительную стратегию действий.</span>
-            </div>
-            <a class="btn btn-primary" href="#final-offer">Получить бесплатный разбор</a>
-          </div>
-          <div class="report-visual" aria-label="Иллюстрация аналитического отчёта">
-            <div class="report-page">
-              <span></span>
-              <span></span>
-              <span></span>
-              <div class="report-chart"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section reveal" id="faq">
-        <div class="container faq-layout">
-          <div class="section-copy faq-copy">
-            <p class="eyebrow">FAQ</p>
-            <h2>FAQ</h2>
-            <p class="faq-intro">
-              Коротко отвечаем на вопросы, которые обычно появляются перед запуском продвижения товара.
-            </p>
-            <a class="faq-link" href="#final-offer">Получить разбор товара</a>
-          </div>
-          <div class="faq-list">
-            <details class="faq-item glass-card">
-              <summary>Как проходит работа?</summary>
-              <p>Сначала разбираем товар и нишу, затем формируем стратегию, запускаем проект и регулярно корректируем действия по динамике.</p>
-            </details>
-            <details class="faq-item glass-card">
-              <summary>Сколько времени занимает запуск?</summary>
-              <p>Обычно подготовка занимает несколько рабочих дней: срок зависит от ниши, состояния карточки и объёма исходных данных.</p>
-            </details>
-            <details class="faq-item glass-card">
-              <summary>Какие товары можно продвигать?</summary>
-              <p>Работаем с товарами на Wildberries и Ozon, где есть понятный спрос, потенциал роста и возможность улучшить позиционирование карточки.</p>
-            </details>
-            <details class="faq-item glass-card">
-              <summary>Что потребуется от меня?</summary>
-              <p>Понадобится ссылка на товар, текущая информация по продажам и рекламной нагрузке, а также доступные данные по целям проекта.</p>
-            </details>
-            <details class="faq-item glass-card">
-              <summary>Как происходит сопровождение?</summary>
-              <p>Вы получаете связь по ключевым этапам, отчётность по проекту и согласование действий, которые могут повлиять на карточку.</p>
-            </details>
-            <details class="faq-item glass-card">
-              <summary>Какие результаты можно ожидать?</summary>
-              <p>Результаты зависят от ниши и текущего состояния товара. На бесплатном разборе показываем реалистичный потенциал и точки роста.</p>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <section class="section final-section reveal" id="final-offer">
-        <div class="container final-card glass-panel">
-          <div class="center-copy">
-            <p class="eyebrow">Персональная стратегия</p>
-            <h2>Получите персональную стратегию роста для вашего товара</h2>
+            <h2>Узнайте, реально ли поднять рейтинг вашего товара до нужного значения</h2>
             <p>
-              Оставьте заявку - мы разберём текущую ситуацию и покажем, какие точки роста можно
-              использовать для продвижения.
+              Рассчитаем потенциал роста рейтинга для Wildberries или Ozon с учётом особенностей алгоритмов площадки.
+            </p>
+            <div class="bullet-list two-col">
+              <span>оценку текущего потенциала роста рейтинга;</span>
+              <span>прогноз изменения рейтинга;</span>
+              <span>понимание необходимого объёма новых оценок;</span>
+              <span>рекомендации по дальнейшим действиям.</span>
+            </div>
+          </div>
+          <div class="final-panel rating-panel">
+            <form class="lead-form" action="#" method="post">
+              <label>
+                <span>Имя</span>
+                <input type="text" name="name" placeholder="Сергей" autocomplete="name" required />
+              </label>
+              <label>
+                <span>Telegram или WhatsApp</span>
+                <input type="text" name="contact" placeholder="@username или WhatsApp" autocomplete="off" required />
+              </label>
+              <label>
+                <span>Артикул или ссылка на товар</span>
+                <input type="text" name="product" placeholder="Артикул WB/Ozon или ссылка" autocomplete="off" required />
+              </label>
+              <label>
+                <span>Маркетплейс</span>
+                <select name="marketplace" required>
+                  <option value="" disabled selected>Выберите маркетплейс</option>
+                  <option value="wildberries">WB</option>
+                  <option value="ozon">Ozon</option>
+                  <option value="both">WB и Ozon</option>
+                </select>
+              </label>
+              <label class="consent-label">
+                <input type="checkbox" name="consent" required />
+                <span>Согласен на обработку персональных данных</span>
+              </label>
+              <button class="btn btn-primary" type="submit">Получить расчёт рейтинга</button>
+            </form>
+            <p class="form-note">
+              Расчёт выполняется вручную с учётом особенностей алгоритмов Wildberries и Ozon.
             </p>
           </div>
-          <form class="lead-form" action="#" method="post">
-            <label>
-              <span>Имя</span>
-              <input type="text" name="name" placeholder="Сергей" autocomplete="name" required />
-            </label>
-            <label>
-              <span>Telegram или номер телефона</span>
-              <input type="text" name="contact" placeholder="+7... или @username" autocomplete="off" required />
-            </label>
-            <label>
-              <span>Маркетплейс</span>
-              <select name="marketplace" required>
-                <option value="" disabled selected>Выберите маркетплейс</option>
-                <option value="wildberries">Wildberries</option>
-                <option value="ozon">Ozon</option>
-                <option value="both">Wildberries и Ozon</option>
-              </select>
-            </label>
-            <button class="btn btn-primary" type="submit">Получить стратегию продвижения</button>
-          </form>
+        </div>
+      </section>
+
+      <section class="section final-section" id="final-cta">
+        <div class="container final-panel">
+          <div class="center-copy">
+            <h2>Перестаньте отдавать продажи конкурентам</h2>
+            <p>Оставьте артикул товара и получите бесплатный расчёт потенциала роста рейтинга.</p>
+          </div>
+          <a class="btn btn-primary final-cta-button" href="#rating-calc">Получить расчёт рейтинга</a>
           <a class="contact-link" href="https://t.me/boostlab_manager" target="_blank" rel="noopener">
             <span>Связаться с нами</span>
-            <svg viewBox="0 0 240 240" aria-hidden="true">
-              <circle cx="120" cy="120" r="120" fill="#229ed9" />
-              <path
-                fill="#ffffff"
-                d="M179.7 74.2c2.1-9.8-3.5-13.6-11.6-10.3L43.2 112.1c-8.5 3.3-8.4 8.1-1.5 10.2l32 10 12.3 37.7c1.6 4.5.8 6.3 5.5 6.3 3.6 0 5.2-1.6 7.2-3.5l17.3-16.8 35.9 26.5c6.6 3.6 11.4 1.8 13-6.1l14.8-102.2zM78.8 129.9l73.5-46.3c3.6-2.2 6.8-1 4.1 1.4l-62.9 56.8-2.4 25.8-12.3-37.7z"
-              />
-            </svg>
+            <strong>TG</strong>
           </a>
-          <p class="microcopy">BOOST LAB © 2026. Стратегии продвижения для Wildberries и Ozon.</p>
+          <p class="microcopy">BOOST LAB © 2026. Развитие товаров на Wildberries и Ozon.</p>
         </div>
       </section>
     </main>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=rating-2"></script>
   </body>
 </html>
