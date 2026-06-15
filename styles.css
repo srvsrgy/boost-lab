@@ -122,18 +122,20 @@ p {
 }
 
 .container,
-.header-grid {
+.header-shell {
   width: 100%;
   padding-right: 16px;
   padding-left: 16px;
 }
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  right: 0;
+  left: 0;
   z-index: 40;
-  border-bottom: 1px solid var(--line);
-  background: var(--bg);
+  background: transparent;
+  pointer-events: none;
 }
 
 .site-ticker {
@@ -144,6 +146,7 @@ p {
   background: var(--ticker-blue);
   color: var(--white);
   overflow: hidden;
+  pointer-events: auto;
 }
 
 .ticker-track {
@@ -176,12 +179,26 @@ p {
   }
 }
 
+.header-shell {
+  pointer-events: auto;
+}
+
+.header-utility {
+  display: none;
+}
+
 .header-grid {
   display: grid;
   min-height: 56px;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 12px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  background: var(--bg);
+  padding-right: 12px;
+  padding-left: 12px;
 }
 
 .brand {
@@ -263,6 +280,7 @@ p {
   overflow-y: auto;
   border-top: 1px solid var(--line);
   background: var(--bg);
+  pointer-events: auto;
 }
 
 .site-header.is-menu-open .mobile-menu {
@@ -299,6 +317,7 @@ p {
 
 .site-main {
   background: var(--bg);
+  padding-top: 90px;
 }
 
 .section {
@@ -1346,7 +1365,7 @@ p {
 
 @media (min-width: 640px) {
   .container,
-  .header-grid {
+  .header-shell {
     padding-right: 24px;
     padding-left: 24px;
   }
@@ -1391,7 +1410,7 @@ p {
 
 @media (min-width: 1024px) {
   .container,
-  .header-grid {
+  .header-shell {
     max-width: var(--container);
     margin-right: auto;
     margin-left: auto;
@@ -1399,57 +1418,112 @@ p {
     padding-left: 0;
   }
 
+  .site-header {
+    padding-top: 16px;
+  }
+
+  .site-ticker {
+    max-width: var(--container);
+    min-height: 36px;
+    border: 1px solid var(--line);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .header-shell {
+    margin-top: 14px;
+  }
+
+  .header-utility {
+    display: grid;
+    min-height: 38px;
+    grid-template-columns: minmax(180px, 252px) minmax(180px, 252px) minmax(0, 1fr) 84px;
+    border: 1px solid var(--line);
+    border-bottom: 0;
+    background: var(--white);
+  }
+
+  .utility-link {
+    display: inline-flex;
+    min-width: 0;
+    min-height: 38px;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--line);
+    padding: 0 18px;
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .utility-primary {
+    justify-content: flex-start;
+    background: var(--ticker-blue);
+    color: var(--white);
+  }
+
+  .utility-spacer {
+    border-right: 1px solid var(--line);
+  }
+
+  .utility-short {
+    border-right: 0;
+  }
+
   .header-grid {
-    min-height: 74px;
-    grid-template-columns: auto minmax(0, 1fr) auto;
+    min-height: 78px;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 28px;
+    border: 1px solid var(--line);
+    background: var(--white);
+    padding-right: 24px;
+    padding-left: 24px;
   }
 
   .brand-logo {
-    height: 38px;
-    max-width: 236px;
+    height: 39px;
+    max-width: 252px;
   }
 
   .nav-links {
     display: flex;
     min-width: 0;
-    justify-content: center;
-    gap: 0;
-    border-left: 1px solid var(--line);
+    justify-content: flex-end;
+    gap: 28px;
+    border-left: 0;
   }
 
   .nav-links a {
     display: inline-flex;
-    min-height: 74px;
+    min-height: 78px;
     align-items: center;
-    border-right: 1px solid var(--line);
-    padding: 0 14px;
-    font-size: 13px;
-    font-weight: 900;
+    border-right: 0;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     white-space: nowrap;
   }
 
   .telegram-link,
   .header-cta {
-    display: inline-flex;
-    min-height: 48px;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--line);
-    padding: 0 16px;
-    background: var(--bg);
-    font-size: 13px;
-    font-weight: 900;
-    text-transform: uppercase;
-  }
-
-  .header-cta {
-    background: var(--turquoise);
+    display: none;
   }
 
   .mobile-menu-toggle,
-  .mobile-menu {
+  .mobile-menu,
+  .header-actions {
     display: none !important;
+  }
+
+  .site-main {
+    padding-top: 184px;
   }
 
   .section {
