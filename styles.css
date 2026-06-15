@@ -1533,11 +1533,9 @@ p {
 
   .messenger-link {
     min-width: 112px;
-    box-shadow: inset 0 0 0 0 var(--line);
     transition:
       background-color 160ms ease,
       color 160ms ease,
-      box-shadow 160ms ease,
       transform 160ms ease;
   }
 
@@ -1554,7 +1552,6 @@ p {
   .messenger-telegram:focus-visible {
     color: var(--white);
     background: #229ed9;
-    box-shadow: inset 0 0 0 2px var(--line);
   }
 
   .messenger-whatsapp {
@@ -1566,7 +1563,6 @@ p {
   .messenger-whatsapp:focus-visible {
     color: var(--white);
     background: #1fab15;
-    box-shadow: inset 0 0 0 2px var(--line);
   }
 
   .messenger-max {
@@ -1578,7 +1574,6 @@ p {
   .messenger-max:focus-visible {
     color: var(--white);
     background: #5d2cff;
-    box-shadow: inset 0 0 0 2px var(--line);
   }
 
   .messenger-vk {
@@ -1590,7 +1585,6 @@ p {
   .messenger-vk:focus-visible {
     color: var(--white);
     background: #0077ff;
-    box-shadow: inset 0 0 0 2px var(--line);
   }
 
   .messenger-link:active {
@@ -1629,27 +1623,25 @@ p {
     display: inline-flex;
     min-height: 48px;
     align-items: center;
-    border: 1px solid transparent;
-    padding: 0 12px;
+    border: 0;
+    padding: 0 10px;
     color: var(--ink);
     font-size: 14px;
     font-weight: 400;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     white-space: nowrap;
     transition:
       background-color 160ms ease,
-      border-color 160ms ease,
-      box-shadow 160ms ease,
       color 160ms ease;
   }
 
   .nav-links a::after {
     position: absolute;
     right: 10px;
-    bottom: 9px;
+    bottom: 11px;
     left: 10px;
-    height: 3px;
+    height: 2px;
     background: var(--coral);
     content: "";
     opacity: 0;
@@ -1662,9 +1654,7 @@ p {
 
   .nav-links a:hover,
   .nav-links a:focus-visible {
-    border-color: var(--line);
-    background: #fff;
-    box-shadow: inset 0 0 0 1px var(--line);
+    background: transparent;
     color: var(--ink);
   }
 
