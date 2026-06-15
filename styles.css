@@ -1435,35 +1435,31 @@ p {
   }
 
   .header-utility {
-    display: grid;
-    min-height: 38px;
-    grid-template-columns: minmax(0, 1fr) auto;
+    display: flex;
+    justify-content: flex-end;
+    background: transparent;
+  }
+
+  .messenger-panel {
+    display: flex;
+    min-height: 36px;
+    align-items: stretch;
     border: 1px solid var(--line);
     border-bottom: 0;
     background: var(--white);
   }
 
-  .utility-spacer {
-    border-right: 1px solid var(--line);
-  }
-
-  .messenger-panel {
-    display: flex;
-    min-height: 38px;
-    align-items: stretch;
-  }
-
   .messenger-label,
   .messenger-link {
     display: inline-flex;
-    min-height: 38px;
+    min-height: 36px;
     align-items: center;
     justify-content: center;
     border-right: 1px solid var(--line);
-    padding: 0 14px;
+    padding: 0 16px;
     font-size: 12px;
     font-weight: 400;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     line-height: 1;
     text-transform: uppercase;
     white-space: nowrap;
@@ -1474,19 +1470,12 @@ p {
   }
 
   .messenger-link {
-    gap: 8px;
-    min-width: 104px;
+    min-width: 112px;
     color: var(--white);
   }
 
   .messenger-link:last-child {
     border-right: 0;
-  }
-
-  .messenger-link img {
-    width: 18px;
-    height: 18px;
-    object-fit: contain;
   }
 
   .messenger-telegram {
@@ -1503,11 +1492,6 @@ p {
 
   .messenger-vk {
     background: #0077ff;
-  }
-
-  .messenger-vk img {
-    width: 20px;
-    height: 20px;
   }
 
   .messenger-link.is-pending {
