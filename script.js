@@ -2,6 +2,29 @@ const siteHeader = document.querySelector(".site-header");
 const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
 const mobileMenu = document.querySelector(".mobile-menu");
 
+const setHeaderScrollState = () => {
+  siteHeader?.classList.toggle("is-scrolled", window.scrollY > 8);
+};
+
+let scrollFrame = null;
+
+window.addEventListener(
+  "scroll",
+  () => {
+    if (scrollFrame) {
+      return;
+    }
+
+    scrollFrame = window.requestAnimationFrame(() => {
+      setHeaderScrollState();
+      scrollFrame = null;
+    });
+  },
+  { passive: true },
+);
+
+setHeaderScrollState();
+
 const setMobileMenu = (isOpen) => {
   siteHeader?.classList.toggle("is-menu-open", isOpen);
   document.body.classList.toggle("is-menu-open", isOpen);

@@ -141,12 +141,28 @@ p {
 .site-ticker {
   display: flex;
   min-height: 34px;
+  max-height: 34px;
   align-items: center;
   border-bottom: 1px solid var(--line);
   background: var(--ticker-blue);
   color: var(--white);
   overflow: hidden;
   pointer-events: auto;
+  transition:
+    max-height 180ms ease,
+    min-height 180ms ease,
+    border-width 180ms ease,
+    opacity 160ms ease,
+    transform 180ms ease;
+}
+
+.site-header.is-scrolled .site-ticker {
+  min-height: 0;
+  max-height: 0;
+  border-width: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
 }
 
 .ticker-track {
@@ -285,6 +301,10 @@ p {
 
 .site-header.is-menu-open .mobile-menu {
   display: block;
+}
+
+.site-header.is-scrolled .mobile-menu {
+  inset: 56px 0 0;
 }
 
 .mobile-menu a {
@@ -1371,6 +1391,7 @@ p {
   }
 
   .site-ticker {
+    max-height: 36px;
     min-height: 36px;
   }
 
@@ -1432,6 +1453,10 @@ p {
 
   .header-shell {
     margin-top: 14px;
+  }
+
+  .site-header.is-scrolled .header-shell {
+    margin-top: 0;
   }
 
   .header-utility {
