@@ -5,6 +5,7 @@
   --line: #0d1117;
   --turquoise: #00b8a9;
   --coral: #ff6b6b;
+  --ticker-blue: #1f3593;
   --soft-panel: #edf1f5;
   --white: #ffffff;
   --container: 1160px;
@@ -135,35 +136,44 @@ p {
   background: var(--bg);
 }
 
-.mobile-topbar {
-  display: grid;
-  min-height: 32px;
-  grid-template-columns: minmax(0, 1fr) auto;
+.site-ticker {
+  display: flex;
+  min-height: 34px;
+  align-items: center;
   border-bottom: 1px solid var(--line);
-  background: var(--turquoise);
+  background: var(--ticker-blue);
+  color: var(--white);
+  overflow: hidden;
 }
 
-.mobile-topbar span {
+.ticker-track {
   display: flex;
-  min-width: 0;
+  width: max-content;
   align-items: center;
-  padding: 0 16px;
-  color: var(--ink);
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: 0.04em;
+  gap: 32px;
+  padding-left: 32px;
+  animation: tickerMove 24s linear infinite;
+  will-change: transform;
+}
+
+.ticker-track span {
+  flex: 0 0 auto;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
   line-height: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
   text-transform: uppercase;
   white-space: nowrap;
 }
 
-.mobile-topbar span + span {
-  border-left: 1px solid var(--line);
-  padding-right: 12px;
-  padding-left: 12px;
-  background: var(--bg);
+@keyframes tickerMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .header-grid {
@@ -248,7 +258,7 @@ p {
 
 .mobile-menu {
   position: fixed;
-  inset: 88px 0 0;
+  inset: 90px 0 0;
   display: none;
   overflow-y: auto;
   border-top: 1px solid var(--line);
@@ -1341,9 +1351,21 @@ p {
     padding-left: 24px;
   }
 
-  .mobile-topbar span {
-    padding-right: 24px;
-    padding-left: 24px;
+  .site-ticker {
+    min-height: 36px;
+  }
+
+  .ticker-track {
+    gap: 42px;
+    padding-left: 42px;
+  }
+
+  .ticker-track span {
+    font-size: 14px;
+  }
+
+  .mobile-menu {
+    inset: 92px 0 0;
   }
 
   .hero-actions,
@@ -1368,10 +1390,6 @@ p {
 }
 
 @media (min-width: 1024px) {
-  .mobile-topbar {
-    display: none;
-  }
-
   .container,
   .header-grid {
     max-width: var(--container);
@@ -1725,5 +1743,9 @@ p {
   .growth-timeline b {
     left: calc(100% - 20px);
     background: var(--turquoise);
+  }
+
+  .ticker-track {
+    transform: translateX(0);
   }
 }
