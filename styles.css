@@ -1437,7 +1437,7 @@ p {
   .header-utility {
     display: grid;
     min-height: 38px;
-    grid-template-columns: minmax(180px, 252px) minmax(180px, 252px) minmax(0, 1fr) 84px;
+    grid-template-columns: minmax(0, 1fr) 84px;
     border: 1px solid var(--line);
     border-bottom: 0;
     background: var(--white);
@@ -1459,12 +1459,6 @@ p {
     text-align: center;
     text-transform: uppercase;
     white-space: nowrap;
-  }
-
-  .utility-primary {
-    justify-content: flex-start;
-    background: var(--ticker-blue);
-    color: var(--white);
   }
 
   .utility-spacer {
