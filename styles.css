@@ -1471,7 +1471,10 @@ p {
 
   .messenger-link {
     min-width: 112px;
-    color: var(--white);
+    transition:
+      background-color 160ms ease,
+      color 160ms ease,
+      transform 160ms ease;
   }
 
   .messenger-link:last-child {
@@ -1479,19 +1482,51 @@ p {
   }
 
   .messenger-telegram {
+    color: #147eaf;
+    background: #dff4fc;
+  }
+
+  .messenger-telegram:hover,
+  .messenger-telegram:focus-visible {
+    color: var(--white);
     background: #229ed9;
   }
 
   .messenger-whatsapp {
+    color: #147a0e;
+    background: #def7dc;
+  }
+
+  .messenger-whatsapp:hover,
+  .messenger-whatsapp:focus-visible {
+    color: var(--white);
     background: #1fab15;
   }
 
   .messenger-max {
+    color: #4a20d8;
+    background: #ebe5ff;
+  }
+
+  .messenger-max:hover,
+  .messenger-max:focus-visible {
+    color: var(--white);
     background: #5d2cff;
   }
 
   .messenger-vk {
+    color: #005bc5;
+    background: #e1efff;
+  }
+
+  .messenger-vk:hover,
+  .messenger-vk:focus-visible {
+    color: var(--white);
     background: #0077ff;
+  }
+
+  .messenger-link:active {
+    transform: translateY(1px);
   }
 
   .messenger-link.is-pending {
